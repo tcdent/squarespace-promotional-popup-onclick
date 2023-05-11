@@ -1,4 +1,5 @@
 squarespace-promotional-popup-onclick
+
 https://github.com/tcdent/squarespace-promotional-popup-onclick
 
 Show a Squarespace marketing popup when a button is clicked.
