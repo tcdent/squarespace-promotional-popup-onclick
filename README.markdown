@@ -13,7 +13,7 @@ Include the follwing embed code in the header of the page, either by _Page Heade
 <script type="text/javascript">
   const SQUARESPACE_PROMOTIONAL_POPUP_ONCLICK_ANCHOR = "#subscribe";
 </script>
-<script src="https://raw.githubusercontent.com/tcdent/squarespace-promotional-popup-onclick/main/embed.js" type="text/javascript"></script>
+<script src="https://cdn.statically.io/gh/tcdent/squarespace-promotional-popup-onclick/main/embed.min.js" type="text/javascript"></script>
 ```
 
 Set one or more buttons on the page to link to your chosen anchor name (default: `"#subscribe"`). 
