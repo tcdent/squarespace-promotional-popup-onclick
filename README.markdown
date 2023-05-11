@@ -26,7 +26,7 @@ Page Header Code Injection
 --------------------------
 This will run this code to run on a single page on your site. 
 
-* In the Squaresapace admin navigation, choose _Pages_.
+* In the Squarespace admin navigation, choose _Pages_.
 * Hover over the page you wish to include the code, click the _gear icon_.
 * Select _Advanced_. 
 * Paste the embed code above into the _Page Header Code Injection_ field. 
