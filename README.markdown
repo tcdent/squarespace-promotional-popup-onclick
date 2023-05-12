@@ -7,7 +7,7 @@ Show a Squarespace Promotional Popup when a button is clicked.
 
 Usage
 -----
-Include the follwing embed code in the header of the page, either by _Page Header Code Injection_ or or _Developer Tools Code Injection_. 
+Include the following embed code in the header of the page, either by _Page Header Code Injection_ or or _Developer Tools Code Injection_. 
 
 ```html
 <script type="text/javascript">
