@@ -3,7 +3,7 @@ squarespace-promotional-popup-onclick
 
 https://github.com/tcdent/squarespace-promotional-popup-onclick
 
-Show a Squarespace marketing popup when a button is clicked.
+Show a Squarespace Promotional Popup when a button is clicked.
 
 Usage
 -----
@@ -21,6 +21,10 @@ Set one or more buttons on the page to link to your chosen anchor name (default:
 <a href="#subscribe">Subscribe</a>
 ```
 
+Configure your Squarespace Promotional Popup
+--------------------------------------------
+* Under Display & Timing scroll to Timing.
+* _Show on a Timer_ and set the delay time to _Immediately_.
 
 Page Header Code Injection
 --------------------------
