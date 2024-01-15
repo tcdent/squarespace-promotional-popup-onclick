@@ -36,8 +36,9 @@
             * Wait for an element to exist in the DOM
             * selector: function which returns the element
             * callback: function to call when element is found
+            * retry_number: number of times we've already tried
             */
-        const MAX_RETRIES = 11;
+        const MAX_RETRIES = 42;
         let $element = selector();
         if(retry_number == null){
             retry_number = 0;
@@ -55,7 +56,7 @@
         setTimeout(function(){
             debug("Waiting for element DOM");
             wait_for_element(selector, callback, retry_number +1);
-        }, 100);
+        }, 500);
     }
 
     let _initialized;
