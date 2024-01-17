@@ -83,19 +83,24 @@
                 $popover.style.display = 'none';
                 $popover.classList.remove('visible');
                 $wrapper.style.display = 'block';
-
-                $close_button = $popover.querySelector('.sqs-popup-overlay-close');
-                $close_button.addEventListener('click', function(e){
-                    debug("Close button click");
-                    e.preventDefault();
-                    $popover.style.display = 'none';
-                    $popover.classList.remove('visible');
+                var $close_button;
+                wait_for_element(function(){
+                    $close_button = document.querySelector('.sqs-popup-overlay .sqs-popup-overlay-close');
+                    return $close_button;
+                }, function(){
+                    debug("Adding event listener to close button");
+                    $close_button.addEventListener('click', function(e){
+                        debug("Close button click");
+                        e.preventDefault();
+                        $popover.style.display = 'none';
+                        $popover.classList.remove('visible');
+                    });
                 });
             }, 500);
         });
 
         for (var i = 0; i < $buttons.length; i++) {
-            debug("Adding event listener to button");
+            debug("Adding event listener to buttons");
             $buttons[i].addEventListener('click', function(e){
                 debug("Button click");
                 e.preventDefault();
