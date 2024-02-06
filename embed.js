@@ -16,6 +16,9 @@
  * Squarespace loads the popover content after the DOM has loaded, so we need to wait to 
  * alter it. During load the `style` attribure is set to "display:block" so we have to 
  * override that to manipulate the visibility. 
+ * 
+ * Also adds `gtag` events for popup-shown, popup-close, and popup-submit, since 
+ * Squarespace doesn't implement Google Analytics in popovers.
 */
 
 (function(){
@@ -31,13 +34,13 @@
         if(DEBUG) console.log("[squarespace-promotional-popup-onclick] "+message);
     }
 
-    let wait_for_element = function(selector, callback, retry_number){
+    function wait_for_element(selector, callback, retry_number){
         /* 
-            * Wait for an element to exist in the DOM
-            * selector: function which returns the element
-            * callback: function to call when element is found
-            * retry_number: number of times we've already tried
-            */
+        * Wait for an element to exist in the DOM
+        * selector: function which returns the element
+        * callback: function to call when element is found
+        * retry_number: number of times we've already tried
+        */
         const MAX_RETRIES = 42;
         let $element = selector();
         if(retry_number == null){
@@ -47,7 +50,6 @@
             debug("Max retries reached; no element found");
             return;
         }
-
         if($element){
             debug("Found element DOM");
             return callback();
@@ -60,7 +62,7 @@
     }
 
     let _initialized;
-    let init = function(){
+    function init(){
         if(_initialized){
             debug("Already initialized");
             return;
@@ -91,9 +93,21 @@
                     debug("Adding event listener to close button");
                     $close_button.addEventListener('click', function(e){
                         debug("Close button click");
+                        gtag('event', 'popup-close');
                         e.preventDefault();
                         $popover.style.display = 'none';
                         $popover.classList.remove('visible');
+                    });
+                });
+                var $submit_button;
+                wait_for_element(function(){
+                    $submit_button = document.querySelector('.sqs-popup-overlay button[type="submit"]');
+                    return $submit_button;
+                }, function(){
+                    debug("Adding event listener to submit button");
+                    $submit_button.addEventListener('click', function(e){
+                        debug("Submit button click");
+                        gtag('event', 'popup-submit');
                     });
                 });
             }, 500);
@@ -103,6 +117,7 @@
             debug("Adding event listener to buttons");
             $buttons[i].addEventListener('click', function(e){
                 debug("Button click");
+                gtag('event', 'popup-shown');
                 e.preventDefault();
                 $popover.style.display = 'block';
                 $popover.classList.add('visible');
