@@ -93,7 +93,7 @@
                     debug("Adding event listener to close button");
                     $close_button.addEventListener('click', function(e){
                         debug("Close button click");
-                        gtag('event', 'popup-close');
+                        gtag('event', 'popup_close');
                         e.preventDefault();
                         $popover.style.display = 'none';
                         $popover.classList.remove('visible');
@@ -107,7 +107,7 @@
                     debug("Adding event listener to submit button");
                     $submit_button.addEventListener('click', function(e){
                         debug("Submit button click");
-                        gtag('event', 'popup-submit');
+                        gtag('event', 'popup_submit');
                     });
                 });
             }, 500);
@@ -117,7 +117,7 @@
             debug("Adding event listener to buttons");
             $buttons[i].addEventListener('click', function(e){
                 debug("Button click");
-                gtag('event', 'popup-shown');
+                gtag('event', 'popup_shown');
                 e.preventDefault();
                 $popover.style.display = 'block';
                 $popover.classList.add('visible');
